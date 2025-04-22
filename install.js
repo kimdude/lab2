@@ -25,7 +25,7 @@ client.connect((error) => {
 //Creating table
 client.query(`
     DROP TABLE IF EXISTS workexpirience;
-    CREATE TABLE workexpirience (
+    CREATE TABLE workexperience (
        id           SERIAL PRIMARY KEY,
        companyname  VARCHAR(30),
        jobtitle     VARCHAR(20),
