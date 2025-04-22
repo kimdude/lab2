@@ -49,6 +49,22 @@ app.get("/api/employers", (req, res) => {
     })
 });
 
+app.get("/api/employers/:id", (req, res) => {
+    client.query(`SELECT * FROM workexperience WHERE id = $1;`, [req.params.id], (err, results) => {
+        if(err) {
+            res.status(500).json({error: "An error occurred: " + err});
+            return;
+        }
+
+        let rows = results.rows
+
+        if(rows.length === 0) {
+            res.json([]);
+        } else {
+            res.json(rows);
+        }
+    })
+});
 
 //Route for Create
 app.post("/api/employers", (req, res) => {
