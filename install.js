@@ -32,5 +32,5 @@ client.query(`
        location     VARCHAR(20),
        startdate    TIMESTAMP,
        enddate      DATE,
-       description  VARCHAR(100))
+       description  VARCHAR(200))
 `);
