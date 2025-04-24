@@ -121,7 +121,7 @@ app.post("/api/employers", (req, res) => {
 
     } else if( errors.message.length === 0 ) {
         //SQL-query to instert new workexperience
-        client.query("INSERT INTO workexperience(companyname, jobtitle, location, startdate, enddate, description) VALUES [$1, $2, $3, $4, $5, $6]",
+        client.query("INSERT INTO workexperience(companyname, jobtitle, location, startdate, enddate, description) VALUES ($1, $2, $3, $4, $5, $6)",
             [employer, jobtitle, location, startdate, enddate, description],
             (err, results) => {
                 if(err) {
