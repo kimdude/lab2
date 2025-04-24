@@ -125,18 +125,22 @@ app.post("/api/employers", (req, res) => {
             [employer, jobtitle, location, startdate, enddate, description],
             (err, results) => {
                 if(err) {
-                    res.status(500).json({error: "An error accurred: " + err});
+                    res.status(500).json({error: "An error occurred: " + err});
 
                 } else {
                     console.log("Query created: " + results.rows);
 
                     //Object to confirm new experience in message
                     let experience = {
-                        employer: employer,
-                        title: title
+                        employer: req.body.companyname,
+                        jobtitle: req.body.jobtitle,
+                        location: req.body.location,
+                        startdate: req.body.startdate,
+                        enddate: req.body.enddate,
+                        description: req.body.description
                     }
 
-                    res.json({message: "experience added: " + experience});
+                    res.json({message: "experience added: ", experience});
 
                 }
             }
